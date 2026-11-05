@@ -1,4 +1,4 @@
-import{Game,HEROES,NAMES,STAGES}from'./engine.js';import{Renderer,hero}from'./render.js';import{installStick}from'./joystick.js';
+import{Game,HEROES,NAMES,STAGES}from'./engine.js?v=2';import{Renderer,hero}from'./render.js?v=2';import{installStick}from'./joystick.js';
 const $=id=>document.getElementById(id),g=new Game(),r=new Renderer($('game')),input={},keys=new Set();let selected=0,best=0,stick,lastState='menu';try{best=Number(localStorage.getItem('jbJumpBest'))||0;}catch{}
 function reset(){keys.clear();for(const k of Object.keys(input))delete input[k];stick?.reset();}
 function start(){reset();g.start(selected);$('menu').hidden=true;$('modal').hidden=true;$('hud').hidden=false;$('touch').hidden=false;r.camera=0;$('app').focus();lastState='play';}
